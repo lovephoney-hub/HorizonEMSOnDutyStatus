@@ -3,10 +3,23 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../../lib/supabaseClient';
 
+// The shape of each row returned from Supabase
+type ClockRecord = {
+  user_name: string;
+  duration_minutes: number | null;
+  clock_in_at: string;
+};
+
+// The shape of each summary item we display
+type SummaryItem = {
+  user_name: string;
+  total_hours_text: string;
+};
+
 export default function SummaryPage() {
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
-  const [summary, setSummary] = useState([]);
+  const [startDate, setStartDate] = useState<string>('');
+  const [endDate, setEndDate] = useState<string>('');
+  const [summary, setSummary] = useState<SummaryItem[]>([]);
 
   const loadSummary = async () => {
     if (!startDate || !endDate) {
@@ -28,20 +41,25 @@ export default function SummaryPage() {
       return;
     }
 
-    const grouped = {};
+    // Type the data from Supabase
+    const typedData = (data || []) as ClockRecord[];
 
-    data.forEach((r) => {
-      if (!grouped[r.user_name]) grouped[r.user_name] = 0;
-      grouped[r.user_name] += r.duration_minutes || 0;
+    // Group by user_name
+    const grouped: Record<string, number> = {};
+
+    typedData.forEach((r) => {
+      const mins = r.duration_minutes ?? 0;
+      grouped[r.user_name] = (grouped[r.user_name] || 0) + mins;
     });
 
-    const final = Object.entries(grouped).map(([name, minutes]) => {
+    // Convert grouped totals into summary items
+    const final: SummaryItem[] = Object.entries(grouped).map(([name, minutes]) => {
       const hours = Math.floor(minutes / 60);
       const mins = minutes % 60;
 
       return {
         user_name: name,
-        total_hours_text: `${hours}H ${mins}M`
+        total_hours_text: `${hours}H ${mins}M`,
       };
     });
 
@@ -60,11 +78,11 @@ export default function SummaryPage() {
         backgroundImage: 'url("/horizonbg.png")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
       }}
     >
       <h1 style={{ color: 'white', textShadow: '0 0 10px black' }}>
-        Bản Tính Lương
+        User Work Summary
       </h1>
 
       {/* Date Range Filter */}
@@ -79,7 +97,7 @@ export default function SummaryPage() {
               padding: 10,
               borderRadius: 8,
               marginLeft: 10,
-              fontSize: 16
+              fontSize: 16,
             }}
           />
         </div>
@@ -94,7 +112,7 @@ export default function SummaryPage() {
               padding: 10,
               borderRadius: 8,
               marginLeft: 22,
-              fontSize: 16
+              fontSize: 16,
             }}
           />
         </div>
@@ -110,7 +128,7 @@ export default function SummaryPage() {
             padding: 12,
             marginBottom: 10,
             borderRadius: 8,
-            boxShadow: '0 2px 6px rgba(0,0,0,0.2)'
+            boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
           }}
         >
           <div><strong>Name:</strong> {s.user_name}</div>
@@ -118,7 +136,7 @@ export default function SummaryPage() {
         </div>
       ))}
 
-      {/* Fixed Footer */}
+      {/* Footer */}
       <div
         style={{
           position: 'fixed',
@@ -135,11 +153,11 @@ export default function SummaryPage() {
           maxWidth: '600px',
           margin: '0 auto 20px auto',
           boxShadow: '0 4px 10px rgba(0,0,0,0.2)',
-          zIndex: 999
+          zIndex: 999,
         }}
       >
         <a href="/history" style={{ marginRight: 20 }}>History</a>
-        <a href="/">Home</a>
+        <a href="/summary">Summary</a>
       </div>
     </div>
   );
