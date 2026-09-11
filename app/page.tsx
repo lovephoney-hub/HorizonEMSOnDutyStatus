@@ -44,12 +44,14 @@ export default function Home() {
         .update({ is_clocked_in: true })
         .eq('id', user.id);
 
-      await supabase
-        .from('clock_records')
-        .insert({
-          user_id: user.id,
-          clock_in_at: utc7.toISOString()
-        });
+		await supabase
+		  .from('clock_records')
+		  .insert({
+			user_id: user.id,
+			user_name: user.name,        // ← store name here
+			clock_in_at: utc7.toISOString()
+		  });
+
 
     } else {
       await supabase
