@@ -82,7 +82,7 @@ export default function SummaryPage() {
       }}
     >
       <h1 style={{ color: 'white', textShadow: '0 0 10px black' }}>
-        User Work Summary
+        Bản Lương
       </h1>
 
       {/* Date Range Filter */}
