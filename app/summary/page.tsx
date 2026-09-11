@@ -157,7 +157,7 @@ export default function SummaryPage() {
         }}
       >
         <a href="/history" style={{ marginRight: 20 }}>History</a>
-        <a href="/summary">Summary</a>
+        <a href="/">Home</a>
       </div>
     </div>
   );
