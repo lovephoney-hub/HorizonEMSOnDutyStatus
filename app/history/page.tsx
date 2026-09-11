@@ -3,8 +3,15 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../../lib/supabaseClient';
 
+type ClockRecord = {
+  user_name: string;
+  clock_in_at: string;
+  clock_out_at: string | null;
+  duration_minutes: number | null;
+};
+
 export default function HistoryPage() {
-  const [records, setRecords] = useState([]);
+  const [records, setRecords] = useState<ClockRecord[]>([]);
 
   const loadHistory = async () => {
     const { data } = await supabase
@@ -53,7 +60,7 @@ export default function HistoryPage() {
           >
             <div style={{ fontSize: 16, fontWeight: 500 }}>
               {r.user_name} — {r.clock_in_at} →{' '}
-              {r.clock_out_at ? r.clock_out_at : 'Đang On Duty'} —{' '}
+              {r.clock_out_at ? r.clock_out_at : 'Still working'} —{' '}
               {hours}H {mins}M
             </div>
           </div>
