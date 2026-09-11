@@ -23,9 +23,16 @@ export default function Home() {
     setUsers(data || []);
   };
 
-  useEffect(() => {
-    loadUsers();
-  }, []);
+	useEffect(() => {
+	  loadUsers();
+
+	  const interval = setInterval(() => {
+		loadUsers();
+	  }, 5000); // refresh every 5 seconds
+
+	  return () => clearInterval(interval);
+	}, []);
+
 
   const toggleClock = async (user: User) => {
     const now = new Date();
