@@ -117,7 +117,7 @@ export default function Home() {
       <div
         style={{
           backgroundColor: 'white',
-          color: 'black',
+          color: 'red',
           padding: '20px',
           borderRadius: '12px',
           textAlign: 'center',
