@@ -85,7 +85,7 @@ export default function SummaryPage() {
       <div
         style={{
           backgroundColor: 'white',
-          color: 'blue',
+          color: 'red',
           padding: '20px',
           borderRadius: '12px',
           textAlign: 'center',

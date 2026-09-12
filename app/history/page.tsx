@@ -41,7 +41,7 @@ export default function HistoryPage() {
       <div
         style={{
           backgroundColor: 'white',
-          color: 'blue',
+          color: 'red',
           padding: '20px',
           borderRadius: '12px',
           textAlign: 'center',
