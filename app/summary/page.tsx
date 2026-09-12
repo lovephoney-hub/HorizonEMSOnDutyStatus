@@ -81,42 +81,68 @@ export default function SummaryPage() {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <h1 style={{ color: 'white', textShadow: '0 0 10px black' }}>
-        Bản Lương
-      </h1>
+      {/* Header Box */}
+      <div
+        style={{
+          backgroundColor: 'white',
+          color: 'blue',
+          padding: '20px',
+          borderRadius: '12px',
+          textAlign: 'center',
+          fontSize: '24px',
+          fontWeight: 'bold',
+          maxWidth: '600px',
+          margin: '0 auto',
+		  marginBottom: '20px',
+          boxShadow: '0 4px 10px rgba(0,0,0,0.2)'
+        }}
+      >
+        Bản Tính Lương
+      </div>
 
       {/* Date Range Filter */}
-      <div style={{ marginBottom: 20, color: 'white', fontSize: 18 }}>
-        <div style={{ marginBottom: 10 }}>
-          <label>Start Date:</label>
-          <input
-            type="date"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-            style={{
-              padding: 10,
-              borderRadius: 8,
-              marginLeft: 10,
-              fontSize: 16,
-            }}
-          />
-        </div>
+		<div
+		  style={{
+			backgroundColor: 'white',
+			marginBottom: 20,
+			color: 'black',
+			fontSize: 18,
+			padding: 20,
+			borderRadius: 12,
+			display: 'inline-block',   // 👈 makes the box wrap around content
+			boxShadow: '0 4px 10px rgba(0,0,0,0.2)'
+		  }}
+		>
+		  <div style={{ marginBottom: 10 }}>
+			<label>Start Date:</label>
+			<input
+			  type="date"
+			  value={startDate}
+			  onChange={(e) => setStartDate(e.target.value)}
+			  style={{
+				padding: 10,
+				borderRadius: 8,
+				marginLeft: 10,
+				fontSize: 16,
+			  }}
+			/>
+		  </div>
 
-        <div>
-          <label>End Date:</label>
-          <input
-            type="date"
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
-            style={{
-              padding: 10,
-              borderRadius: 8,
-              marginLeft: 22,
-              fontSize: 16,
-            }}
-          />
-        </div>
-      </div>
+		  <div>
+			<label>End Date:</label>
+			<input
+			  type="date"
+			  value={endDate}
+			  onChange={(e) => setEndDate(e.target.value)}
+			  style={{
+				padding: 10,
+				borderRadius: 8,
+				marginLeft: 22,
+				fontSize: 16,
+			  }}
+			/>
+		  </div>
+		</div>
 
       {/* Summary Results */}
       {summary.map((s, index) => (
