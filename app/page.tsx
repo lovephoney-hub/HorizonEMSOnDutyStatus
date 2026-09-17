@@ -8,6 +8,7 @@ type User = {
   name: string;
   avatar_url: string | null;
   is_clocked_in: boolean;
+  role: string;
 };
 
 export default function Home() {
@@ -181,6 +182,9 @@ export default function Home() {
             <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 10 }}>
               {u.name}
             </div>
+			<div style={{ fontSize: 14, fontWeight: 500, marginBottom: 8 }}>
+			  {u.role}
+			</div>
 
             <div
               style={{
