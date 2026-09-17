@@ -6,21 +6,21 @@ export default function PayCalculator() {
   const [total, setTotal] = useState<number>(0);
 
   const roles = [
-    { key: 'Viện Trưởng', label: 'Viện Trưởng' },
-    { key: 'Viện Phó 1', label: 'Viện Phó 1' },
-    { key: 'Viện Phó 2', label: 'Viện Phó 2' },
-    { key: 'Ca Trưởng', label: 'Team Lead' },
-    { key: 'Nhân Viên', label: 'Team Member' },
-    { key: 'Thực Tập Sinh', label: 'Thực Tập Sinh' }
+    { key: 'P', label: 'Viện Trưởng' },
+    { key: 'VP1', label: 'Viện Phó 1' },
+    { key: 'VP2', label: 'Viện Phó 2' },
+    { key: 'Lead', label: 'Team Lead' },
+    { key: 'Mem', label: 'Team Member' },
+    { key: 'Trainee', label: 'Thực Tập Sinh' }
   ];
 
 	const [percentages, setPercentages] = useState<Record<string, number>>({
-	  Viện Trưởng: 0,
-	  Viện Phó 1: 0,
-	  Viện Phó 2: 0,
-	  Ca Trưởng: 0,
-	  Nhân Viên: 0,
-	  Thực Tập Sinh: 0
+	  P: 0,
+	  VP1: 0,
+	  VP2: 0,
+	  Lead: 0,
+	  Mem: 0,
+	  Trainee: 0
 	});
 
   const handlePercentChange = (role: string, value: number) => {
@@ -28,12 +28,12 @@ export default function PayCalculator() {
   };
 
   const totalPercent =
-    percentages.Viện Trưởng +
-    percentages.Viện Phó 1 +
-    percentages.Viện Phó 2 +
-    percentages.Ca Trưởng +
-    percentages.Nhân Viên +
-    percentages.Thực Tập Sinh;
+    percentages.P +
+    percentages.VP1 +
+    percentages.VP2 +
+    percentages.Lead +
+    percentages.Mem +
+    percentages.Trainee;
 
   return (
     <div
