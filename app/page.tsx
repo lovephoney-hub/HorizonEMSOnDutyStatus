@@ -232,7 +232,7 @@ const getNameFontSize = (name: string) => {
 		<div
 		  style={{
 			alignSelf: 'flex-start',
-			marginLeft: 20,
+			marginLeft: 5,
 			backgroundColor: 'rgba(255,255,255,0.88)',
 			padding: '3px 12px',
 			borderRadius: 20,
@@ -250,7 +250,7 @@ const getNameFontSize = (name: string) => {
 		<div
 		  style={{
 			alignSelf: 'flex-start',
-			marginLeft: 20,
+			marginLeft: 5,
 			backgroundColor: 'rgba(255,255,255,0.88)',
 			padding: '4px 10px',
 			borderRadius: 6,
@@ -270,7 +270,7 @@ const getNameFontSize = (name: string) => {
 		<div
 		  style={{
 			alignSelf: 'flex-start',
-			marginLeft: 20,
+			marginLeft: 5,
 			backgroundColor: 'rgba(255,255,255,0.80)',
 			padding: '3px 9px',
 			borderRadius: 5,
