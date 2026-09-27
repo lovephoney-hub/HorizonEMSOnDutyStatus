@@ -17,14 +17,25 @@ export default function Home() {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [showConfirm, setShowConfirm] = useState(false);
 
-  const loadUsers = async () => {
-    const { data } = await supabase
-      .from('users')
-      .select('*')
-      .order('EID', { ascending: true });
 
-    setUsers(data || []);
-  };
+ const loadUsers = async () => {
+  const { data } = await supabase
+    .from('users')
+    .select('*');
+
+  const sortedUsers = (data || []).sort((a, b) => {
+    // On duty first
+    if (a.is_clocked_in !== b.is_clocked_in) {
+      return a.is_clocked_in ? -1 : 1;
+    }
+
+    // Then sort by EID
+    return Number(a.EID) - Number(b.EID);
+  });
+
+  setUsers(sortedUsers);
+};
+ 
 
   useEffect(() => {
     loadUsers();
@@ -127,10 +138,11 @@ const getNameFontSize = (name: string) => {
 {/* Banner */}
 <div
   style={{
-    width: '100%',
+    width: '40%',
     height: '30%',
     overflow: 'hidden',
     borderRadius: '12px',
+	margin: '0 auto',
   }}
 >
   <img
