@@ -128,7 +128,7 @@ const getNameFontSize = (name: string) => {
 <div
   style={{
     width: '100%',
-    height: '125px',
+    height: '100%',
     overflow: 'hidden',
     borderRadius: '12px',
   }}
