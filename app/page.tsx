@@ -225,20 +225,30 @@ const getNameFontSize = (name: string) => {
 		>
 
 		  {/* Avatar */}
-		  <img
-			src={u.avatar_url || ''}
-			alt={u.name}
-			style={{
-			  width: 82,
-			  height: 82,
-			  borderRadius: '50%',
-			  objectFit: 'cover',
-			  border: '4px solid white',
-			  boxShadow: '0 2px 6px rgba(0,0,0,0.3)',
-			  backgroundColor: '#eee',
-			  marginBottom: 5
-			}}
-		  />
+		<img
+		  src={u.avatar_url || ''}
+		  alt={u.name}
+		  style={{
+			width: 82,
+			height: 82,
+			borderRadius: '50%',
+			objectFit: 'cover',
+
+			border: u.is_clocked_in
+			  ? '4px solid #39ff14'
+			  : '4px solid white',
+
+			boxShadow: u.is_clocked_in
+			  ? '0 0 10px #39ff14, 0 0 20px rgba(57,255,20,0.8)'
+			  : '0 2px 6px rgba(0,0,0,0.3)',
+
+			backgroundColor: u.is_clocked_in
+			  ? '#39ff14'
+			  : '#eee',
+
+			marginBottom: 5
+		  }}
+		/>
 
 		  {/* EID */}
 		<div
