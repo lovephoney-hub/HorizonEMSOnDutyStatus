@@ -243,7 +243,6 @@ const getNameFontSize = (name: string) => {
 		  {/* EID */}
 		<div
 		  style={{
-			alignSelf: 'flex-start',
 			marginLeft: 5,
 			//backgroundColor: 'red',
 			//padding: '3px 12px',
