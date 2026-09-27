@@ -249,7 +249,6 @@ const getNameFontSize = (name: string) => {
 			//borderRadius: 20,
 			fontSize: 18,
 			fontWeight: 800,
-			color: '#123c66',
 			marginBottom: 20,
 			alignSelf: 'center',
 			color: '#D64227',
