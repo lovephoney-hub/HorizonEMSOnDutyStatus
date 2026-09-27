@@ -161,17 +161,17 @@ const getNameFontSize = (name: string) => {
 <div style={{ height: '40px' }}></div>
 
       {/* User Grid */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(7, 1fr)',
-          gap: 20,
-          justifyItems: 'center',
-          width: '100%',
-          maxWidth: '1400px',
-          margin: '0 auto'
-        }}
-      >
+		<div
+		  style={{
+			display: 'grid',
+			gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+			gap: 24,
+			width: '100%',
+			maxWidth: '1400px',
+			margin: '0 auto',
+			boxSizing: 'border-box'
+		  }}
+		>
 
 	{users.map(u => (
 	  <div
@@ -236,7 +236,7 @@ const getNameFontSize = (name: string) => {
 			  border: '4px solid white',
 			  boxShadow: '0 2px 6px rgba(0,0,0,0.3)',
 			  backgroundColor: '#eee',
-			  marginBottom: 10
+			  marginBottom: 5
 			}}
 		  />
 
@@ -245,14 +245,16 @@ const getNameFontSize = (name: string) => {
 		  style={{
 			alignSelf: 'flex-start',
 			marginLeft: 5,
-			backgroundColor: 'rgba(255,255,255,0.88)',
-			padding: '3px 12px',
-			borderRadius: 20,
+			//backgroundColor: 'red',
+			//padding: '3px 12px',
+			//borderRadius: 20,
 			fontSize: 18,
 			fontWeight: 800,
 			color: '#123c66',
-			marginBottom: 6,
-			boxShadow: '0 1px 3px rgba(0,0,0,0.15)'
+			marginBottom: 20,
+			alignSelf: 'center',
+			color: '#D64227',
+			//boxShadow: '0 1px 3px rgba(0,0,0,0.15)'
 		  }}
 		>
 		  EID:{u.EID}
@@ -263,19 +265,19 @@ const getNameFontSize = (name: string) => {
 		  style={{
 			alignSelf: 'flex-start',
 			marginLeft: 5,
-			backgroundColor: 'rgba(255,255,255,0.88)',
-			padding: '4px 10px',
-			borderRadius: 6,
+			//backgroundColor: 'rgba(255,255,255,0.88)',
+			//padding: '4px 10px',
+			//borderRadius: 6,
 			fontSize: getNameFontSize(u.name),
 			fontWeight: 700,
 			color: '#111',
 			textAlign: 'left',
 			whiteSpace: 'nowrap',
 			lineHeight: 1.2,
-			marginBottom: 5
+			marginBottom: 10
 		  }}
 		>
-		  Tên:{u.name}
+		  Tên: {u.name}
 		</div>
 
 		  {/* Role */}
@@ -283,8 +285,8 @@ const getNameFontSize = (name: string) => {
 		  style={{
 			alignSelf: 'flex-start',
 			marginLeft: 5,
-			backgroundColor: 'rgba(255,255,255,0.80)',
-			padding: '3px 9px',
+			//backgroundColor: 'rgba(255,255,255,0.80)',
+			//padding: '3px 9px',
 			borderRadius: 5,
 			fontSize: 12,
 			fontWeight: 600,
