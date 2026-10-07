@@ -10,6 +10,7 @@ type User = {
   avatar_url: string | null;
   is_clocked_in: boolean;
   role: string;
+  CMND: string;
 };
 
 export default function Home() {
@@ -249,8 +250,8 @@ const getNameFontSize = (name: string) => {
 			marginBottom: 5
 		  }}
 		/>
-
-		  {/* EID */}
+		
+		  {/* CMND */}
 		<div
 		  style={{
 			marginLeft: 5,
@@ -265,8 +266,8 @@ const getNameFontSize = (name: string) => {
 			//boxShadow: '0 1px 3px rgba(0,0,0,0.15)'
 		  }}
 		>
-		  EID:{u.EID}
-		</div>
+		  {u.CMND}
+		</div>		
 
 		  {/* Name */}
 		<div
